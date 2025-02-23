@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=820, height=1180, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Trésor Rapaces Trouvé - Mission Museum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            width: 100vw;
+            min-height: 100vh; /* Permet d'éviter la coupure en bas */
+            background: url('Images/Ressources/fondaigle.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .title-container {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 130px;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: gold;
+            text-shadow: 0px 0px 15px rgba(255, 215, 0, 0.8);
+        }
+
+        .subtitle {
+            font-size: 50px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: #FFD700;
+            text-shadow: 0px 0px 10px rgba(255, 215, 0, 0.6);
+        }
+
+        .treasure-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: pulseGlow 2s infinite alternate;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .treasure-container img {
+            width: 500px;
+            height: auto;
+            border-radius: 15px;
+            border: 4px solid gold;
+            box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.9);
+        }
+
+        .text-box {
+            width: 80%;
+            background: rgba(255, 215, 0, 1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 40px;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            animation: fadeIn 2s ease-in-out;
+            text-align: justify;
+        }
+
+        /* Conteneur des aigles */
+        .flying-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Aigles en vol */
+        .eagle {
+            position: absolute;
+            width: 50px;
+            height: auto;
+            opacity: 0.9;
+            animation: rise linear infinite;
+        }
+
+        /* Animation de montée */
+        @keyframes rise {
+            0% {
+                transform: translateY(110vh) translateX(0) rotate(var(--rotation));
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(var(--drift)) rotate(var(--rotation-end));
+                opacity: 0;
+            }
+        }
+
+        /* LIGHTBOX */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .lightbox img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+        .lightbox p {
+            color: white;
+            font-size: 30px;
+            margin-top: 15px;
+            max-width: 80%;
+            opacity: 0.9;
+            padding: 20px;
+            background: black;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        .finish-button {
+        background-color: gold;
+        color: black;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-top: 30px;
+    }
+
+    .finish-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.8);
+    }
+
+    .finish-button:active {
+        transform: scale(0.95);
+    }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            from { transform: scale(1); box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.9); }
+            to { transform: scale(1.05); box-shadow: 0px 0px 30px rgba(255, 215, 0, 1); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="flying-container"></div> 
+
+    <div class="title-container">
+        <h1>FÉLICITATIONS !</h1>
+        <p class="subtitle">Vous avez trouvé le dernier Trésor (Rapaces) !</p>
+    </div>
+
+    <div class="treasure-container">
+        <img src="Images/Ressources/imagejocondeaigle.png" alt="Aigle de Bonelli" onclick="openLightbox(this)">
+    </div>
+
+    <div class="text-box">
+        <p>
+            Vous avez découvert un trésor unique : l’Aigle de Bonelli, maître des cieux varois.  
+            Rare et majestueux, il symbolise la liberté et l’équilibre fragile de la nature.  
+            Jadis menacé, il renaît grâce aux efforts de conservation.  
+            Ce trésor du musée vous rappelle l’importance de sa préservation.  
+            Félicitations, explorateur, vous avez percé le mystère des airs.  
+        </p>
+    </div>
+
+    <div class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Zoom Image">
+        <p id="lightbox-text">LE FAMEUX AIGLE DE BONELLI</p>
+    </div>
+
+    <button class="finish-button" onclick="window.location.href='fin.html'">
+        J'AI TERMINÉ
+    </button>
+
+    <script>
+        function openLightbox(img) {
+            document.getElementById('lightbox-img').src = img.src;
+            document.querySelector('.lightbox').style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.querySelector('.lightbox').style.display = 'none';
+        }
+
+        function createFlyingEagles() {
+            const flyingContainer = document.querySelector(".flying-container");
+
+            for (let i = 0; i < 12; i++) { // Ajuste la quantité
+                let eagle = document.createElement("img");
+                eagle.classList.add("eagle");
+                eagle.src = "Images/Ressources/aigle.svg"; // Remplace par le bon chemin
+
+                let randomX = Math.random() * 100;
+                let randomSize = Math.random() * 60 + 20; // Taille variable
+                let duration = Math.random() * 4 + 3; // Vitesse variable
+                let rotationStart = Math.random() * 40 - 20; 
+                let rotationEnd = Math.random() * 40 - 20;
+
+                eagle.style.left = `${randomX}vw`;
+                eagle.style.width = `${randomSize}px`;
+                eagle.style.animationDuration = `${duration}s`;
+                eagle.style.setProperty("--drift", `${Math.random() * 10 - 5}vw`);
+                eagle.style.setProperty("--rotation", `${rotationStart}deg`);
+                eagle.style.setProperty("--rotation-end", `${rotationEnd}deg`);
+
+                flyingContainer.appendChild(eagle);
+
+                setTimeout(() => {
+                    eagle.remove();
+                }, duration * 1000);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            createFlyingEagles();
+            setInterval(createFlyingEagles, 2000);
+        });
+    </script>
+</body>
+</html>

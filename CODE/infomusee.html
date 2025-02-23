@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=820, height=1180, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>À Propos du Musée - Mission Museum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            width: 100vw;
+            min-height: 100vh;
+            background: url('Images/fondmusee.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            position: relative;
+            padding: 60px;
+        }
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 18px;
+        }
+        .header-line {
+            position: absolute;
+            bottom: -1px;
+            left: 40px;
+            width: 95%;
+            height: 2px;
+            background-color: white;
+        }
+        .logo {
+            font-size: 54px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 400;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        .logo:hover {
+            color: #B5D269;
+            transform: scale(1.05);
+        }
+        .social-links {
+            display: flex;
+            gap: 30px;
+            margin-left: 600px;
+        }
+        .social-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        .social-link:hover {
+            color: #B5D269;
+        }
+        .menu {
+            cursor: pointer;
+            font-size: 50px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .menu:hover {
+            transform: scale(1.1);
+            color: #B5D269;
+        }
+        .menu:active {
+            transform: scale(0.9);
+        }
+        
+        .title-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            padding-top: 150px;
+            padding-bottom: 10px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+        .text-section {
+            width: 60%;
+        }
+        .image-section {
+            width: 35%;
+            position: relative;
+        }
+        h1 {
+            font-size: 80px;
+            font-family: 'Bebas Neue', sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: #B5D269;
+        }
+        .subtitle {
+            font-size: 28px;
+            margin-left: 40px;
+        }
+        .content {
+            font-size: 19px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        .content strong {
+            font-weight: 600;
+        }
+
+        .slideshow {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        height: 450px;
+        overflow: hidden;
+        border-radius: 10px;
+        border: 5px solid #B5D269;
+    }
+
+    .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+        opacity: 1;
+    }
+
+    /* Gestion des citations */
+    .quote-container {
+        position: relative;
+        height: 60px;
+        overflow: hidden;
+        margin-top: 10px;
+    }
+
+    .quote {
+        position: absolute;
+        width: 100%;
+        text-align: right;
+        font-size: 22px;
+        font-style: italic;
+        color: #B5D269;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .quote.active {
+        opacity: 1;
+    }
+
+    /* ✅ ÉCRAN LARGE (≥ 1380px) */
+@media (max-width: 1380px) {
+
+    body {
+            padding: 40px;
+        }
+
+    .social-links {
+        display: none; /* ❌ Cache les liens sociaux */
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 40px;
+    }
+
+    .header-line {
+        width: 93%;
+        margin: 0 auto;
+    }
+
+    .logo {
+        font-size: 40px;
+    }
+
+    .menu {
+        font-size: 40px;
+    }
+
+    h1 {
+        font-size: 72px;
+    }
+
+    .subtitle {
+        font-size: 24px;
+    }
+
+    .container {
+        gap: 25px;
+    }
+
+    .slideshow {
+        width: 350px;
+        height: 500px;
+    }
+
+    .text-section {
+        font-size: 18px;
+    }
+}
+
+/* ✅ SUPPRESSION DU SLIDESHOW À PARTIR DE 1080px */
+@media (max-width: 1080px) {
+    .image-section {
+        display: none; /* 🔹 Cache la section contenant le slideshow */
+    }
+
+    .container {
+        grid-template-columns: 1fr; /* 🔹 Passe en une seule colonne */
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .text-section {
+        font-size: 18px;
+        width: 100%;
+        text-align: justify;
+        margin: 20px auto;
+    }
+}
+
+/* ✅ TABLETTES (768px - 1024px) */
+@media (max-width: 1024px) {
+    body {
+        padding: 40px;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 30px;
+    }
+
+    .header-line {
+        left: 20px;
+        width: 94%;
+    }
+
+    .logo {
+        font-size: 38px;
+    }
+
+    .menu {
+        font-size: 40px;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .text-section {
+        font-size: 17px;
+        width: 100%;
+        text-align: justify;
+        margin: 20px auto;
+    }
+}
+
+/* ✅ MOBILES (≤ 768px) */
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        font-size: 32px;
+    }
+
+    .menu {
+        font-size: 30px;
+    }
+
+    h1 {
+        font-size: 50px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .title-container {
+        flex-direction: column;
+        align-items: left;
+        text-align: left;
+        padding-top: 100px;
+    }
+
+    .text-section {
+        font-size: 16px;
+        width: 100%;
+        text-align: justify;
+        margin: 20px auto;
+    }
+}
+
+/* 🚫 PETITS MOBILES (≤ 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .menu {
+        font-size: 30px;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .title-container {
+        flex-direction: column;
+        align-items: left;
+        text-align: left;
+        padding-top: 50px;
+    }
+
+    .text-section {
+        font-size: 14px;
+        width: 100%;
+        text-align: justify;
+        margin: 15px auto;
+    }
+}
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">MISSION MUSEUM.</a>
+        <div class="social-links">
+            <a href="https://www.facebook.com" class="social-link">Facebook</a>
+            <a href="https://www.instagram.com" class="social-link">Instagram</a>
+            <a href="https://www.linkedin.com" class="social-link">LinkedIn</a>
+        </div>
+        <div class="menu" onclick="window.location.href='menu.html'">☰</div>
+        <div class="header-line"></div>
+    </header>
+    
+    <div class="title-container">
+        <h1>À PROPOS DU MUSÉE</h1>
+        <p class="subtitle"><strong>Toulon - Museum du Jardin du Las</strong></p>
+    </div>
+
+    <div class="container">
+        <div class="text-section">
+            <p class="content">
+                Situé en plein cœur de <strong>Toulon</strong>, le <strong>Museum du Jardin du Las</strong> est une véritable porte ouverte sur le patrimoine naturel et scientifique de la région. 
+                Niché dans une bastide du <strong>XIXe siècle</strong>, ce lieu emblématique invite à un voyage fascinant à travers le temps et l’espace, à la découverte de la <strong>biodiversité méditerranéenne</strong> et des merveilles géologiques du <strong>Var</strong>.
+            </p>
+            <br>
+            <p class="content">
+                Le musée abrite une collection remarquable, alliant <strong>expositions permanentes et temporaires</strong>. 
+                Les visiteurs peuvent y explorer des thèmes variés : de la <strong>géologie</strong> aux <strong>espèces animales disparues</strong>, en passant par l'évolution du paysage méditerranéen au fil des millénaires.
+                Chaque salle dévoile des trésors insoupçonnés, des fossiles témoignant d'un passé lointain aux squelettes imposants des animaux qui peuplaient autrefois nos terres.
+            </p>
+            <br>
+            <p class="content">
+                <strong>Un lieu vivant et interactif.</strong> Contrairement aux musées traditionnels, le Museum du Jardin du Las privilégie une approche immersive.
+                Grâce à des dispositifs <strong>numériques et sensoriels</strong>, les visiteurs peuvent observer les spécimens sous un nouvel angle, toucher certaines textures minérales et écouter les sons de la faune locale.
+            </p>
+        </div>
+        <div class="image-section">
+            <div class="slideshow">
+                <img src="Images/Galerie/image1.jpg" class="slide active">
+                <img src="Images/Galerie/image2.jpg" class="slide">
+                <img src="Images/Galerie/image3.jpg" class="slide">
+                <img src="Images/Galerie/image4.jpg" class="slide">
+                <img src="Images/Galerie/image5.jpg" class="slide">
+                <img src="Images/Galerie/image6.jpg" class="slide">
+                <img src="Images/Galerie/image7.jpg" class="slide">
+                <img src="Images/Galerie/image8.jpg" class="slide">
+                <img src="Images/Galerie/image9.jpg" class="slide">
+                <img src="Images/Galerie/image10.jpg" class="slide">
+            </div>
+            <div class="quote-container">
+                <p class="quote active">“Wow, mais c’est quoi cette espèce ?”</p>
+                <p class="quote">“C’est incroyable de voir ça en vrai !”</p>
+                <p class="quote">“Je ne savais pas que ces créatures avaient existé ici.”</p> 
+                <p class="quote">“Ce musée est une véritable mine d’informations.”</p>
+                <p class="quote">“J’adore cette expérience immersive !”</p>           
+            </div>
+        </div>
+        
+        <script>
+            let slides = document.querySelectorAll(".slide");
+            let quotes = document.querySelectorAll(".quote");
+            let index = 0;
+        
+            function changeSlide() {
+                // On retire la classe active de l'élément actuel
+                slides[index].classList.remove("active");
+                quotes[index % quotes.length].classList.remove("active"); 
+        
+                // On incrémente l'index et on boucle si nécessaire
+                index = (index + 1) % slides.length;
+        
+                // On ajoute la classe active au nouvel élément
+                slides[index].classList.add("active");
+                quotes[index % quotes.length].classList.add("active"); 
+            }
+        
+            setInterval(changeSlide, 3000);
+        </script>
+
+</body>
+</html>

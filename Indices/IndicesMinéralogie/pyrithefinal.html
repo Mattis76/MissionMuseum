@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=820, height=1180, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Trésor Minéraux Trouvé - Mission Museum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            width: 100vw;
+            min-height: 100vh;
+            background: url('Images/Ressources/fondminérale.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .title-container {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 130px;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: gold;
+            text-shadow: 0px 0px 15px rgba(255, 215, 0, 0.8);
+        }
+
+        .subtitle {
+            font-size: 50px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: #FFD700;
+            text-shadow: 0px 0px 10px rgba(255, 215, 0, 0.6);
+        }
+
+        .treasure-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: pulseGlow 2s infinite alternate;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .treasure-container img {
+            width: 500px;
+            height: auto;
+            border-radius: 15px;
+            border: 4px solid gold;
+            box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.9);
+        }
+
+        .text-box {
+            width: 80%;
+            background: rgba(255, 215, 0, 1);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 40px;
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            animation: fadeIn 2s ease-in-out;
+            text-align: justify;
+        }
+
+        /* Éclats dorés qui tombent */
+        .golden-spark {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 215, 0, 1) 0%, rgba(255, 215, 0, 0) 80%);
+            width: 8px;
+            height: 8px;
+            opacity: 0.9;
+            border-radius: 50%;
+            animation: fallSparkles linear infinite;
+        }
+
+        @keyframes fallSparkles {
+            0% {
+                transform: translateY(-10vh) scale(0.5);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(110vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* LIGHTBOX */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .lightbox img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+        .lightbox p {
+            color: white;
+            font-size: 30px;
+            margin-top: 15px;
+            max-width: 80%;
+            opacity: 0.9;
+            padding: 20px;
+            background: black;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseGlow {
+            from { transform: scale(1); box-shadow: 0px 0px 20px rgba(255, 215, 0, 0.9); }
+            to { transform: scale(1.05); box-shadow: 0px 0px 30px rgba(255, 215, 0, 1); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="title-container">
+        <h1>FÉLICITATIONS !</h1>
+        <p class="subtitle">Vous avez trouvé le Trésor des Minéraux !</p>
+    </div>
+
+    <div class="treasure-container">
+        <img src="Images/Ressources/pyrithefinal.png" alt="Pyrite" onclick="openLightbox(this)">
+    </div>
+
+    <div class="text-box">
+        <p>
+            Vous avez découvert un trésor unique : la <strong>pyrite</strong>, éclatante et énigmatique.  
+            Surnommée <strong>"l’or des fous"</strong>, elle intrigue depuis des siècles.  
+            Témoignage des <strong>profondeurs géologiques</strong> du Var, elle cache bien des mystères.  
+            Félicitations, explorateur, vous avez percé les secrets des minéraux !
+        </p>
+    </div>
+
+    <div class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Zoom Image">
+        <p id="lightbox-text">LA FAMEUSE PYRITE</p>
+    </div>
+
+    <script>
+        function openLightbox(img) {
+            document.getElementById('lightbox-img').src = img.src;
+            document.querySelector('.lightbox').style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.querySelector('.lightbox').style.display = 'none';
+        }
+
+        function createGoldenSparkles() {
+            const body = document.body;
+
+            for (let i = 0; i < 15; i++) { 
+                let spark = document.createElement("div");
+                spark.classList.add("golden-spark");
+
+                let randomX = Math.random() * 100; 
+                let randomSize = Math.random() * 10 + 5; 
+                let duration = Math.random() * 4 + 2; 
+
+                spark.style.left = `${randomX}vw`;
+                spark.style.width = `${randomSize}px`;
+                spark.style.height = `${randomSize}px`;
+                spark.style.animationDuration = `${duration}s`;
+
+                body.appendChild(spark);
+
+                setTimeout(() => {
+                    spark.remove();
+                }, duration * 1000);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            createGoldenSparkles();
+            setInterval(createGoldenSparkles, 1500);
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=820, height=1180, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Contact - Mission Museum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            width: 100vw;
+            min-height: 100vh;
+            background: url('Images/fondcontact.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: relative;
+            padding: 60px;
+        }
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 18px;
+        }
+        .header-line {
+            position: absolute;
+            bottom: -1px;
+            left: 40px;
+            padding-right: 20px;
+            width: 95%;
+            height: 2px;
+            background-color: white;
+        }
+        .logo {
+            font-size: 54px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 400;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        .logo:hover {
+            color: #B5D269;
+            transform: scale(1.05);
+        }
+        .social-links {
+            display: flex;
+            gap: 30px;
+            margin-left: 600px;
+        }
+        .social-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        .social-link:hover {
+            color: #B5D269;
+        }
+        .menu {
+            cursor: pointer;
+            font-size: 50px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .menu:hover {
+            transform: scale(1.1);
+            color: #B5D269;
+        }
+
+        .menu:active {
+            transform: scale(0.9);
+        }
+
+        .contact-logo-container {
+            position: absolute;
+            text-align: left;
+            margin-right: 1130px;
+            margin-top: 240px;
+        }
+        .contact-logo {
+            width: 250px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-items: flex-start;
+            margin-top: 40px;
+            margin-bottom: 10px;
+        }
+        .contact-column{
+            width: 30%;
+        }
+        
+        .contact-columnmap {
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 420px; /* Ajuste selon le besoin */
+            height: 320px;
+            background-color: white; /* Fond blanc pour créer un effet de bordure */
+            padding: 8px; /* Épaisseur de la bordure */
+            border-radius: 15px; /* Coins arrondis */
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.5); /* Ombre blanche subtile */
+        }
+
+        .contact-columnmap iframe {
+            width: 100%;
+            height: 100%;
+            border: none; /* Supprime les bordures internes */
+            border-radius: 10px; /* Coins arrondis à l'intérieur */
+        }
+
+        p{
+            padding-top: 30px;
+        }
+
+        h1 {
+            font-size: 150px;
+            font-family: 'Bebas Neue', sans-serif;
+            text-transform: uppercase;
+            margin-top: 200px;
+            margin-bottom: 0px;
+            margin-left: 350px;
+            font-weight: 500;
+        }
+        .contact-info {
+            font-size: 22px;
+            line-height: 2;
+        }
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid white;
+            padding-bottom: 4px;
+            transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+        }
+        .contact-info a:hover {
+            color: #B5D269;
+            border-bottom: 2px solid #B5D269;
+        }
+
+        .contact-info strong {
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 500;
+            font-size: 38px;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .contact-info strong:hover {
+            color: #B5D269;
+            transform: scale(1.1);
+        }
+
+        .map {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 4px solid white; /* Change la couleur ici */
+        }
+
+        iframe {
+            width: 400px;
+            height: 300px;
+            border-radius: 10px;
+            border: 4px solid white; /* Change la couleur ici */
+        }
+
+        /* ✅ ÉCRAN LARGE (≥ 1280px) */
+@media (max-width: 1380px) {
+
+    .social-links {
+        display: none; /* ❌ Cache les liens sociaux */
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 40px;
+    }
+
+    .header-line {
+        width: 93%;
+        margin: 0 auto;
+    }
+
+    .logo {
+        font-size: 40px;
+    }
+
+    .menu {
+        font-size: 40px;
+    }
+
+    h1 {
+        font-size: 120px;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .contact-column {
+        font-size: 18px;
+    }
+
+    .contact-info strong {
+        font-size: 32px;
+    }
+
+    .contact-columnmap {
+        width: 350px;
+        height: 280px;
+    }
+
+    .contact-logo-container {
+        display: none; /* ❌ Masque le logo */
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* ✅ ADAPTATION POUR 1080px */
+@media (max-width: 1024px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 30px;
+    }
+
+    .header-line {
+        left: 20px;
+        width: 94%;
+    }
+
+    .logo {
+        font-size: 38px;
+    }
+
+    .menu {
+        font-size: 40px;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 100px;
+        text-align: center;
+        margin-top: 150px;
+    }
+
+    .contact-column {
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .contact-columnmap {
+        width: 90%;
+        height: 280px;
+    }
+
+    .contact-logo-container {
+        position: relative;
+        text-align: center;
+        margin-right: 0;
+        margin-top: 100px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* ✅ TABLETTES (768px - 1024px) */
+@media (max-width: 1024px) {
+    body {
+        padding: 40px;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        font-size: 32px;
+    }
+
+    .menu {
+        font-size: 30px;
+    }
+
+    h1 {
+        font-size: 80px;
+        margin-top: 120px;
+    }
+
+    .contact-column {
+        font-size: 16px;
+    }
+
+    .contact-columnmap {
+        width: 90%;
+        height: 250px;
+    }
+
+    .contact-info {
+        margin-bottom: 30px;
+    }
+
+    .contact-logo-container {
+        margin-top: 80px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* ✅ MOBILES (≤ 768px) */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .menu {
+        font-size: 40px;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    .contact-column {
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .contact-info strong {
+        font-size: 24px;
+    }
+
+
+    .contact-logo-container {
+        margin-top: 50px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* 🚫 PETITS MOBILES (≤ 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .menu {
+        font-size: 40px;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+    .contact-column {
+        font-size: 12px;
+    }
+
+    .contact-info strong {
+        font-size: 20px;
+    }
+
+    .contact-logo-container {
+        margin-top: 30px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+       
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">MISSION MUSEUM.</a>
+        <div class="social-links">
+            <a href="https://www.facebook.com" class="social-link">Facebook</a>
+            <a href="https://www.instagram.com" class="social-link">Instagram</a>
+            <a href="https://www.instagram.com" class="social-link">Linkedin</a>
+        </div>
+        <div class="menu" onclick="window.location.href='menu.html'">☰</div>
+        <div class="header-line"></div>
+    </header>
+
+    <div class="contact-logo-container">
+        <img src="Images/logomissionmuseum.png" alt="Mission Museum Logo" class="contact-logo">
+    </div>
+    
+    <h1>NOUS CONTACTER</h1>
+    
+    <div class="container">
+        <div class="contact-column">
+            <p class="contact-info">
+                <strong>LE MUSÉE</strong><br>
+                Toulon (83 200)<br>
+                France<br>
+                <a href="mailto:museum@var.fr">museum@var.fr</a><br>
+                <a href="tel:+483954430">+4 83 95 44 30</a>
+            </p>
+        </div>
+        <div class="contact-column">
+            <p class="contact-info">
+                <strong>LES ÉTUDIANTS</strong><br>
+                Toulon (83 000)<br>
+                France<br>
+                <a href="mailto:missionmuseum@gmail.com">missionmuseum@gmail.com</a><br>
+                <a href="tel:+785135151">+7 85 13 51 51</a>
+            </p>
+        </div>
+        <div class="contact-columnmap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.3784976510346!2d5.937266876609347!3d43.121198186675876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12c91b0a6b2cea6f%3A0xa865e0843e39d84e!2sIUT%20MMI!5e1!3m2!1sfr!2sfr!4v1739825065566!5m2!1sfr!2sfr" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>   </div>
+</body>
+</html>

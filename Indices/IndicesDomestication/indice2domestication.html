@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=820, height=1180, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Indice Numéro 2 Domestication - Mission Museum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            width: 100vw;
+            min-height: 100vh; /* Permet d'éviter la coupure en bas */
+            background: url('Images/Ressources/fondzonedomestique.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        /* HEADER */
+        .header-container {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* IMAGE D'ALERTE EN HAUT */
+        .alert-container {
+            width: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .alert-image {
+            width: 120px; /* Ajuste la taille de l'image */
+            height: auto;
+            display: block;
+            margin: 0; /* Supprime les marges */
+            padding: 0; /* Supprime les espaces internes */
+        }
+
+        .title-container {
+            text-align: left;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .logo-container img {
+            height: 120px;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 100px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .subtitle {
+            font-size: 50px;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        /* INFO SCAN */
+        .info-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background: rgba(80, 90, 100, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .info-container img {
+            object-fit: cover; /* Assure que la vidéo remplit bien son cadre */
+            height: 100%;
+            width: 250px;
+            border-radius: 10px;
+            border: 3px solid white;
+            margin-right: 30px;
+            cursor: pointer;
+        }
+
+        .info-text h3 {
+            font-size: 22px;
+            color: #B2E3A0;
+        }
+
+        .info-text h2 {
+            font-size: 34px;
+            font-family: 'Bebas Neue', sans-serif;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .info-text p {
+            font-size: 19px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .text-box {
+            width: 60%;
+            background: rgba(50, 50, 50, 0.6);          
+            padding: 30px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .text-box h2 {
+            font-size: 40px;
+            font-family: 'Bebas Neue', sans-serif;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .text-box p {
+            font-size: 19px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .video-box {
+            width: 35%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Empêche les débordements */
+        }
+
+        .video-box video {
+            width: 100%;
+            height: 100%; /* Permet de garder le bon ratio d’aspect */
+            object-fit: cover; /* Assure que la vidéo remplit bien son cadre */
+            border-radius: 10px;
+            border: 3px solid white;
+        }
+
+        /* LIGHTBOX */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .lightbox img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 10px;
+            border: 4px solid white;
+        }
+        .lightbox p {
+            color: white;
+            font-size: 20px;
+            margin-top: 15px;
+            max-width: 80%;
+            opacity: 0.9;
+            padding: 10px;
+            background: #91CB7C;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 1280px) {  /* POUR LES ÉCRANS <= 1280px */
+    h1 {
+        font-size: 70px; /* Réduction de la taille du titre */
+    }
+
+    .subtitle {
+        font-size: 35px; /* Ajustement du sous-titre */
+    }
+
+    .alert-container {
+        width: 15%;
+    }
+
+    .alert-image {
+        width: 90px;
+    }
+
+    .logo-container img {
+        height: 90px;
+    }
+}
+
+        /* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {  /* TABLETTES & IPAD */
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .title-container {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    .subtitle {
+        font-size: 30px;
+    }
+
+    .alert-container {
+        width: 20%;
+    }
+
+    .alert-image {
+        width: 80px;
+    }
+
+    .logo-container img {
+        height: 80px;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {  /* SMARTPHONES */
+    h1 {
+        font-size: 45px;
+    }
+
+    .subtitle {
+        font-size: 24px;
+    }
+
+    .alert-container {
+        width: 30%;
+    }
+
+    .alert-image {
+        width: 60px;
+    }
+
+    .logo-container img {
+        height: 70px;
+        margin-top: 30px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <!-- IMAGE D'ALERTE EN HAUT -->
+        <div class="title-container">
+            <h1>INDICE N°2 TROUVÉ, MAIS...</h1>
+            <p class="subtitle">Ce n’est pas le trésor des espèces domestiques !</p>
+        </div>
+        <div class="alert-container">
+            <img src="Images/Ressources/emotionbien.png" alt="Attention" class="alert-image">
+        </div>
+        <div class="logo-container">
+            <img src="Images/Ressources/logomissionmuseum.png" alt="Mission Museum Logo">
+        </div>
+    </div>
+
+    <div class="info-container">
+        <img src="Images/Ressources/indice3renardroux.jpg" alt="Espèce scannée" onclick="openLightbox('lightbox1', 'Images/Ressources/indice3renardroux.jpg', 'Le Renard Roux : Très discret')">
+        <div class="info-text">
+            <h3>Vous avez scanné :</h3>
+            <h2>Le renard roux</h2>
+            <p>
+                Discret et rusé, le <strong>renard roux</strong> est un maître de l’adaptation. Présent dans de nombreux écosystèmes, il évolue aussi bien dans les forêts profondes que près des zones habitées.  
+                Grâce à son <strong>ouïe fine</strong> et son <strong>flair aiguisé</strong>, il repère ses proies à plusieurs mètres sous terre.
+            </p>
+            <br>
+            <p>
+                Habile chasseur, il alterne entre <strong>carnivore opportuniste</strong> et <strong>omnivore ingénieux</strong>, se nourrissant de rongeurs, d’insectes et même de fruits.  
+                Reconnaissable à son <strong>pelage flamboyant</strong> et sa <strong>queue touffue</strong>, il est souvent perçu comme un symbole de ruse et d’intelligence dans de nombreuses cultures.
+            </p>
+        </div>
+    </div>
+    
+    <div class="content-container">
+
+        <div class="text-box">
+            <h2>INDICE N°2 - DOMESTIQUES (regardez la vidéo à droite)</h2>
+            <p>
+                Il ne chasse pas au hasard. Ses déplacements sont précis, ses stratégies bien rodées.  
+                Grâce à son <strong>intelligence</strong> et sa <strong>patience</strong>, il attend le bon moment pour agir.  
+            </p>
+            <br>
+            <p>
+                Il <strong>observe sans être vu</strong>, s’adapte à son environnement,  
+                évoluant avec une aisance naturelle qui fait de lui un maître du terrain.  
+            </p>
+        </div>
+
+        <div class="video-box">
+            <video controls>
+                    <source src="Images/Ressources/indice2domestication.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+            </video>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox1" onclick="closeLightbox('lightbox1')">
+        <img id="lightbox1-img" src="" alt="Zoom Image">
+        <p id="lightbox1-text"></p>
+    </div>
+
+    <div class="lightbox" id="lightbox2" onclick="closeLightbox('lightbox2')">
+        <img id="lightbox2-img" src="" alt="Zoom Image">
+        <p id="lightbox2-text"></p>
+    </div>
+
+    <script>
+       function openLightbox(lightboxId, imgSrc, text) {
+            document.getElementById(lightboxId + '-img').src = imgSrc;
+            document.getElementById(lightboxId + '-text').innerText = text;
+            document.getElementById(lightboxId).style.display = 'flex';
+        }
+
+        function closeLightbox(lightboxId) {
+            document.getElementById(lightboxId).style.display = 'none';
+        }
+    </script>
+</body>
+</html>

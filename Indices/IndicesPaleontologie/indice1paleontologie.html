@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=820, height=1180, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Indice Numéro 1 Paléontologie - Mission Museum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            width: 100vw;
+            min-height: 100vh; /* Permet d'éviter la coupure en bas */
+            background: url('Images/Ressources/fondpaleontologie.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        /* HEADER */
+        .header-container {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+                /* IMAGE D'ALERTE EN HAUT */
+.alert-container {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert-image {
+    width: 120px; /* Ajuste la taille de l'image */
+    height: auto;
+    display: block;
+    margin: 0; /* Supprime les marges */
+    padding: 0; /* Supprime les espaces internes */
+}
+
+        .title-container {
+            text-align: left;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .logo-container img {
+            height: 120px;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 100px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+        .subtitle {
+            font-size: 50px;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        /* INFO SCAN */
+        .info-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background: rgba(77, 65, 49, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 20px;
+            margin-top: 50px;
+            text-align: left;
+        }
+
+        .info-container img {
+            width: 250px;
+            border-radius: 10px;
+            border: 3px solid white;
+            margin-right: 30px;
+        }
+
+        .info-text h3 {
+            font-size: 22px;
+            color: #B5D269;
+        }
+
+        .info-text h2 {
+            font-size: 34px;
+            font-family: 'Bebas Neue', sans-serif;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .info-text p {
+            font-size: 19px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        /* CONTENU PRINCIPAL */
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .text-box {
+            width: 60%;
+            background: rgba(204, 233, 255, 0.5);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .text-box h2 {
+            font-size: 40px;
+            font-family: 'Bebas Neue', sans-serif;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .text-box p {
+            font-size: 19px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        .text-son p{
+            font-size: 19px;
+            text-align: justify;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .text-son h3{
+            font-size: 24px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .audio-box {
+            width: 35%;
+            text-align: center;
+        }
+
+        .audio-box audio {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* LIGHTBOX */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            flex-direction: column; /* Organise en colonne pour que le texte soit sous l'image */
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .lightbox img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 10px;
+            border: 4px solid white;
+        }
+        .lightbox p {
+            color: white;
+            font-size: 20px;
+            margin-top: 15px;
+            max-width: 80%;
+            opacity: 0.9;
+            padding: 10px;
+            background: #51B09F; /* Ajoute un fond semi-transparent pour améliorer la lisibilité */
+            border-radius: 5px;
+        }
+
+        @media (max-width: 1280px) {  /* POUR LES ÉCRANS <= 1280px */
+    h1 {
+        font-size: 70px; /* Réduction de la taille du titre */
+    }
+
+    .subtitle {
+        font-size: 35px; /* Ajustement du sous-titre */
+    }
+
+    .alert-container {
+        width: 15%;
+    }
+
+    .alert-image {
+        width: 90px;
+    }
+
+    .logo-container img {
+        height: 90px;
+    }
+}
+
+        /* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {  /* TABLETTES & IPAD */
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .title-container {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    .subtitle {
+        font-size: 30px;
+    }
+
+    .alert-container {
+        width: 20%;
+    }
+
+    .alert-image {
+        width: 80px;
+    }
+
+    .logo-container img {
+        height: 80px;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {  /* SMARTPHONES */
+    h1 {
+        font-size: 45px;
+    }
+
+    .subtitle {
+        font-size: 24px;
+    }
+
+    .alert-container {
+        width: 30%;
+    }
+
+    .alert-image {
+        width: 60px;
+    }
+
+    .logo-container img {
+        height: 70px;
+        margin-top: 30px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <div class="title-container">
+            <h1>INDICE N1 TROUVÉ, MAIS...</h1>
+            <p class="subtitle">Ce n’est pas le trésor des PALÉONTOLOGIE !</p>
+        </div>
+        <div class="alert-container">
+            <img src="Images/Ressources/emotionpasbien.png" alt="Attention" class="alert-image">
+        </div>
+        <div class="logo-container">
+            <img src="Images/Ressources/logomissionmuseum.png" alt="Mission Museum Logo">
+        </div>
+    </div>
+
+    <div class="info-container">
+        <img src="Images/Ressources/indice1dentmammouth.jpg" alt="Espèce scannée" onclick="openLightbox(this)">
+        <div class="info-text">
+            <h3>Vous avez scanné :</h3>
+            <h2>Dent de Mammouth</h2>
+            <p>
+                Cette dent <strong>imposante</strong> témoigne de la puissance de cet animal préhistorique. 
+                Mesurant parfois plus de <strong>30 centimètres</strong>, elle servait à broyer de vastes quantités de végétation. 
+                Mais malgré sa force, il a finit par <strong>disparaître</strong>.
+            </p>
+        </div>
+    </div>
+    
+    <div class="content-container">
+        <div class="text-box">
+            <h2>INDICE N°1 - ZONE PALÉONTOLOGIE (cliquez sur le son à droite)</h2>
+            <p>
+                <strong>Imposant et majestueux</strong>, le mammouth dominait autrefois les vastes étendues de toundra et de steppe, foulant les terres gelées de l’<strong>ère glaciaire</strong>.  
+                <br><br><strong>Adapté aux conditions extrêmes</strong>, il était un survivant des climats rigoureux, évoluant aux côtés des <strong>premiers hommes</strong>.  
+                Sa <strong>toison dense et laineuse</strong>, ainsi qu’une couche épaisse de graisse sous sa peau, lui permettaient de <strong>résister aux températures glaciales</strong>.            </p>
+        </div>
+        
+        <div class="audio-box">
+        <div class="text-son"><p><h3>Écoutez cet indice sonore :</h3>
+            <p>
+                Ce <strong>son</strong> mystérieux provient d’une époque révolue. 
+                Écoutez attentivement : il pourrait vous révéler un élément clé pour avancer dans votre quête.  
+                Les échos du passé résonnent encore aujourd’hui… Saurez-vous les décrypter ?
+            </p></p></div>
+            <audio controls>
+                <source src="Images/Ressources/indice1mammiferes.mp3" type="audio/mpeg">
+                Votre navigateur ne supporte pas l'audio.
+            </audio>
+        </div>
+    </div>
+
+    <div class="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Zoom Image">
+        <p id="lightbox-text">Dent de mammouth.</p>
+    </div>
+
+    <script>
+        function openLightbox(img) {
+            document.getElementById('lightbox-img').src = img.src;
+            document.querySelector('.lightbox').style.display = 'flex';
+        }
+        function closeLightbox() {
+            document.querySelector('.lightbox').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

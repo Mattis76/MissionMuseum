@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=820, height=1180, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Menu - Mission Museum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            width: 100vw;
+            min-height: 100vh;
+            background: url('Images/fondmenu.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: relative;
+            padding: 60px;
+        }
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 18px;
+        }
+        .header-line {
+            position: absolute;
+            bottom: -1px;
+            left: 40px;
+            padding-right: 20px;
+            width: 96%;
+            height: 2px;
+            background-color: white;
+        }
+        .logo {
+            font-size: 54px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 400;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        .logo:hover {
+            color: #B5D269;
+            transform: scale(1.05);
+        }
+        .social-links {
+            display: flex;
+            gap: 30px;
+            margin-left: 600px;
+        }
+        .social-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        .social-link:hover {
+            color: #B5D269;
+        }
+        .menu-container {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 100px;
+        }
+        .menu-left {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+        .menu-title {
+            font-size: 68px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        .close-menu {
+            cursor: pointer;
+            font-size: 50px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        .close-menu:hover {
+            color: #B5D269;
+            transform: scale(1.05);
+        }
+
+        .contact-info {
+            margin-top: 150px;
+            font-size: 24px;
+            line-height: 2.5;
+        }
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid white;
+            padding-bottom: 4px;
+            transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+        }
+        .contact-info a:hover {
+            color: #B5D269;
+            border-bottom: 2px solid #B5D269;
+        }
+        .menu-right {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 30px;
+        }
+        .menu-items a {
+            display: flex;
+            align-items: center;
+            font-size: 98px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+        .menu-items a:hover {
+            transform: scale(1.05);
+        }
+        .menu-items a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 0%;
+            height: 1.5px;
+            background-color: white;
+            transition: width 0.3s ease-in-out;
+        }
+        .menu-items a:hover::after {
+            width: 100%;
+        }
+        .menu-items span {
+            padding-top: 40px;
+            font-size: 52px;
+            font-weight: bold;
+            color: #B5D269;
+            margin-right: 30px;
+        }
+
+        /* ✅ ÉCRAN LARGE (≥ 1280px) */
+@media (max-width: 1380px) {
+    .social-links {
+        display: none; /* ❌ Cache les liens sociaux */
+    }
+
+    .header-line {
+        width: 93%;
+        margin: 0 auto;
+    }
+
+    .logo {
+        font-size: 50px;
+    }
+
+    .close-menu {
+        font-size: 40px;
+    }
+
+    .menu-items a {
+        font-size: 60px;
+    }
+
+    .menu-items span {
+        font-size: 48px;
+    }
+}
+
+/* ✅ TABLETTES (768px - 1024px) */
+@media (max-width: 1024px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+    }
+
+    .header-line {
+        left: 20px;
+        width: 94%;
+    }
+
+    .logo {
+        font-size: 42px;
+    }
+
+    .close-menu {
+        font-size: 36px;
+    }
+
+    /* ✅ Maintient la structure en 2 colonnes */
+    .menu-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 🔹 Deux colonnes */
+        gap: 40px;
+        width: 90%;
+        margin: auto;
+        padding-top: 8vh;
+        align-items: left;
+    }
+
+    .menu-left,
+    .menu-right {
+        width: 100%;
+        text-align: left; /* ✅ Centrage du texte */
+    }
+
+    .menu-title {
+        font-size: 60px;
+    }
+
+    .menu-items a {
+        font-size: 50px;
+    }
+
+    .menu-items span {
+        font-size: 38px;
+    }
+
+    .contact-info {
+        font-size: 20px;
+        text-align: left; /* ✅ Centrage du texte */
+    }
+}
+
+/* ✅ MOBILES (≤ 768px) */
+@media (max-width: 768px) {
+
+    body {
+        padding: 20px;
+        align-content: center;
+    }
+
+    header {
+        padding: 10px 20px;
+    }
+
+    .logo {
+        font-size: 36px;
+    }
+
+    .close-menu {
+        font-size: 32px;
+    }
+
+    /* ✅ Passage en une seule colonne */
+    .menu-container {
+        grid-template-columns: 1fr; /* 🔹 Passage en 1 colonne */
+        text-align: center;
+        padding-top: 8vh;
+    }
+
+    .menu-left {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .menu-title {
+        font-size: 48px;
+    }
+
+    .menu-items a {
+        font-size: 50px;
+        flex-direction: column;
+    }
+
+    .menu-items span {
+        font-size: 34px;
+    }
+
+    .contact-info {
+        font-size: 18px;
+    }
+}
+
+/* 🚫 PETITS MOBILES (≤ 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 20px;
+        align-items: center;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 28px;
+    }
+
+    .close-menu {
+        font-size: 26px;
+    }
+
+    .menu-container {
+        padding-top: 2vh;
+    }
+
+    .menu-title {
+        font-size: 40px;
+    }
+
+    .menu-items a {
+        font-size: 40px;
+    }
+
+    .menu-items span {
+        font-size: 30px;
+    }
+
+    .contact-info {
+        font-size: 16px;
+    }
+}
+       
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">MISSION MUSEUM.</a>
+        <div class="social-links">
+            <a href="https://www.facebook.com" class="social-link">Facebook</a>
+            <a href="https://www.instagram.com" class="social-link">Instagram</a>
+            <a href="https://www.instagram.com" class="social-link">Linkedin</a>
+        </div>
+        <div class="close-menu" onclick="history.back()">✖</div>
+        <div class="header-line"></div>
+    </header>
+    
+    <div class="menu-container">
+        <div class="menu-left">
+            <h1 class="menu-title">MENU.</h1>
+            <div class="contact-info">
+                <p>Université de Toulon<br>Toulon (83 000)<br>France</p>
+                <a href="mailto:missionmuseum@gmail.com">missionmuseum@gmail.com</a>
+                <p><a href="tel:+785135151">+7 85 13 51 51</a></p>
+            </div>
+        </div>
+        
+        <div class="menu-right">
+            <div class="menu-items">
+                <a href="galerieimage.html"><span>01.</span> LES IMAGES</a>
+                <a href="infomusee.html"><span>02.</span> LE MUSÉE</a>
+                <a href="infoprojet.html"><span>03.</span> LE PROJET</a>
+                <a href="contact.html"><span>04.</span> CONTACT</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function closeMenu() {
+            window.location.href = 'index.html'; // Remplace par la page d'accueil
+        }
+    </script>
+</body>
+</html>
+

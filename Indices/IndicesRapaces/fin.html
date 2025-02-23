@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=820, height=1180, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Merci d'avoir joué ! - Mission Museum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            width: 100vw;
+            min-height: 100vh;
+            background: url('Images/Ressources/fondfin.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .title-container {
+            animation: fadeIn 1.5s ease-in-out;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 100px;
+            text-transform: uppercase;
+            font-weight: 500;
+            color: white;
+            text-shadow: 0px 0px 15px #FFBE55;
+            animation: pulseText 2s infinite alternate;
+        }
+
+        .subtitle {
+            font-size: 50px;
+            font-weight: 500;
+            color: #94C973;
+            text-shadow: 0px 0px 10px rgba(148, 201, 115, 0.6);
+        }
+
+        .text-box {
+            width: 70%;
+            background: #1D5252;
+            padding: 30px;
+            border-radius: 10px;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            box-shadow: 0px 0px 15px white;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .text-box {
+            text-align: justify;
+        }
+
+
+        /* Particules légères */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(148, 201, 115, 1) 0%, rgba(148, 201, 115, 0) 80%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fallParticles linear infinite;
+        }
+
+        @keyframes fallParticles {
+            0% {
+                transform: translateY(-10vh) scale(0.5);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(110vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseText {
+            from { transform: scale(1); text-shadow: 0px 0px 20px rgba(148, 201, 115, 0.9); }
+            to { transform: scale(1.05); text-shadow: 0px 0px 30px rgba(148, 201, 115, 1); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="particles-container"></div>
+
+    <div class="title-container">
+        <h1>Merci d'avoir joué !</h1>
+        <p class="subtitle">Mission accomplie !</p>
+    </div>
+
+    <div class="text-box">
+        <p>
+            Bravo, explorateur-s / exploratrice-s ! Vous avez relevé tous les défis et découvert les trésors cachés du <strong>Mission Museum</strong>.  
+            <br><br>Votre quête vous a mené à travers <strong>des écosystèmes variés</strong>, à la rencontre d’espèces <strong>rares et fascinantes</strong>.  
+            <br><br>Mais l’aventure ne s’arrête pas là... D’autres mystères de la nature vous attendent encore !  
+            <br><br>Avant de partir, pensez à <strong>rendre la tablette bien éteinte</strong> et à <strong>récupérer votre certificat d'explorateur</strong> (si vous avez trouvé tous les trésors) en guise de récompense.  
+            <br><br>Merci pour votre participation et à bientôt pour une nouvelle mission !  
+        </p>
+    </div>
+
+    <script>
+        function createParticles() {
+            const particlesContainer = document.querySelector(".particles-container");
+
+            for (let i = 0; i < 15; i++) { 
+                let particle = document.createElement("div");
+                particle.classList.add("particle");
+
+                let randomX = Math.random() * 100; 
+                let randomSize = Math.random() * 10 + 5; 
+                let duration = Math.random() * 4 + 2; 
+
+                particle.style.left = `${randomX}vw`;
+                particle.style.width = `${randomSize}px`;
+                particle.style.height = `${randomSize}px`;
+                particle.style.animationDuration = `${duration}s`;
+
+                particlesContainer.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.remove();
+                }, duration * 1000);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            createParticles();
+            setInterval(createParticles, 1500);
+        });
+
+    </script>
+</body>
+</html>
